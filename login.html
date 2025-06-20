@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تسجيل حساب - KMI</title>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: #0f2027;
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      border-radius: 5px;
+      border: none;
+      width: 80%;
+      max-width: 400px;
+      font-size: 16px;
+    }
+    button {
+      background-color: #00bcd4;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>تسجيل حساب جديد</h1>
+
+  <form id="signupForm">
+    <input type="text" id="name" placeholder="الاسم" required><br>
+    <input type="email" id="email" placeholder="البريد الإلكتروني" required><br>
+    <input type="password" id="password" placeholder="كلمة السر" required><br>
+    <button type="submit">إنشاء الحساب</button>
+  </form>
+
+  <p id="msg"></p>
+
+  <script>
+    document.getElementById("signupForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      const url = "https://docs.google.com/forms/d/e/1FAIpQLSdjEFHSWVaW9FyG_IS5Y9ATc_MGIJvNk8eBoVEX7qcw6iQUpg/formResponse";
+
+      const formData = new FormData();
+      formData.append("entry.1356919979", name);
+      formData.append("entry.150296794", email);
+      formData.append("entry.1504144587", password);
+
+      fetch(url, {
+        method: "POST",
+        mode: "no-cors",
+        body: formData
+      }).then(() => {
+        document.getElementById("msg").innerText = "✅ تم تسجيل الحساب بنجاح!";
+        document.getElementById("signupForm").reset();
+      }).catch(() => {
+        document.getElementById("msg").innerText = "❌ حدث خطأ أثناء الإرسال.";
+      });
+    });
+  </script>
+
+</body>
+</html>
+
+<a  href="https://instagram.com/k_m_i_designer_campany" target="_blank"><i class="fab fa-instagram"></i> إنستجرام</a>

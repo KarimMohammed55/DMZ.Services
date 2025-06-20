@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dmz Services | الصفحة الرئيسية</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --primary: #00bcd4;
+      --primary-dark: #0097a7;
+      --bg: #0d1b2a;
+      --bg-card: #16263d;
+      --text: #f5f5f5;
+      --muted: #b0b0b0;
+      --radius: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      /* أضف هذا لتجنب أي مشاكل في السكرولنج */
+      scroll-behavior: smooth;
+    }
+
+    /* ---------- NAV ---------- */
+    header {
+      background: #09111f;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 6px #0006;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 8%;
+    }
+
+    header img {
+      width: 140px;
+    }
+
+    header nav a {
+      margin-left: 22px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    header nav a:hover {
+      color: var(--primary);
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      background: linear-gradient(#0009, #0009),
+        url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=80') center/cover;
+      text-align: center;
+      padding: 110px 20px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 10px auto 25px;
+      font-size: 18px;
+    }
+
+    .btn {
+      background: var(--primary);
+      padding: 12px 30px;
+      border-radius: var(--radius);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
+    }
+
+    /* ---------- SECTIONS ---------- */
+    section {
+      padding: 60px 8%;
+    }
+
+    section h2 {
+      font-size: 28px;
+      color: var(--primary);
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    /* about / values */
+    .about-text {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    .values {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .value {
+      background: var(--bg-card);
+      padding: 25px;
+      border-radius: var(--radius);
+      width: 240px;
+      text-align: center;
+    }
+
+    .value i {
+      font-size: 32px;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    /* services */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      padding: 25px;
+      border-radius: var(--radius);
+      text-align: right;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .card i {
+      font-size: 28px;
+      color: var(--primary);
+      margin-left: 8px;
+    }
+
+    /* pricing */
+    .pricing {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      justify-content: center;
+    }
+
+    .price-box {
+      background: #111d33;
+      padding: 25px;
+      border: 2px solid var(--primary);
+      border-radius: var(--radius);
+      width: 290px;
+      text-align: center;
+    }
+
+    .price-box h3 {
+      margin-bottom: 15px;
+      font-size: 22px;
+    }
+
+    .price-box ul {
+      list-style: none;
+      text-align: right;
+      font-size: 15px;
+      margin: 15px 0;
+    }
+
+    .price {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .price-box span {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .price-box .btn {
+      margin-top: 10px;
+    }
+
+    /* testimonials */
+    .testimonials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      justify-content: center;
+    }
+
+    .testi {
+      background: var(--bg-card);
+      padding: 20px;
+      border-radius: var(--radius);
+      width: 280px;
+      font-size: 15px;
+    }
+
+    .testi i {
+      color: var(--primary);
+      margin-left: 5px;
+    }
+
+    /* Contact Section Social Links */
+    .social-links {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .social-links a {
+      background-color: var(--primary);
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: var(--radius);
+      font-weight: bold;
+      transition: background 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .social-links a:hover {
+      background-color: var(--primary-dark);
+    }
+
+    /* Footer */
+    footer {
+      background: #09111f;
+      padding: 25px 8%;
+      text-align: center;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+      margin: 0 6px;
+    }
+
+    /* Main Nav (if needed for internal pages) */
+    .main-nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background-color: #0d1b2a;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px auto;
+      max-width: 600px;
+      flex-wrap: wrap;
+    }
+
+    .main-nav a {
+      background-color: #00bcd4;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .main-nav a:hover {
+      background-color: #0097a7;
+    }
+
+    /* Scroll to Top Button */
+    #scrollToTopBtn {
+      display: none; /* مخفي في البداية */
+      position: fixed; /* ثابت في مكانه */
+      bottom: 20px; /* مسافة من الأسفل */
+      right: 30px; /* مسافة من اليمين */
+      z-index: 99; /* عشان يظهر فوق كل العناصر */
+      border: none; /* بدون حدود */
+      outline: none; /* بدون إطار تحديد عند التركيز */
+      background-color: var(--primary); /* لون الخلفية */
+      color: white; /* لون النص/الأيقونة */
+      cursor: pointer; /* شكل المؤشر يد على الزر */
+      padding: 15px; /* مساحة داخلية */
+      border-radius: 50%; /* شكل دائري */
+      font-size: 20px; /* حجم الأيقونة */
+      transition: opacity 0.3s, background-color 0.3s; /* انتقال سلس للظهور واللون */
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* ظل للزر */
+    }
+
+    #scrollToTopBtn:hover {
+      background-color: var(--primary-dark); /* لون عند التمرير */
+    }
+
+    /* Responsiveness */
+    @media(max-width:550px) {
+      .hero h1 {
+        font-size: 30px;
+      }
+      header img {
+        width: 110px;
+      }
+      header nav a {
+        margin-left: 15px;
+      }
+      #scrollToTopBtn { /* تعديل مكان الزر على الشاشات الصغيرة */
+        right: 15px;
+        bottom: 15px;
+        padding: 12px;
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+  
+    <nav>
+      <a href="#about">من نحن</a>
+      <a href="#services">الخدمات</a>
+      <a href="#pricing">الأسعار</a>
+      <a href="#contact">تواصل</a>
+      <a href="login.html"> تسجيل الدخول</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1 id="typeEffect"></h1>
+    <p>نصمّم مواقع، متاجر، وهويات بصرية باحترافية وابتكار لنساعدك على بناء حضور رقمي قوي.</p>
+    <a class="btn" href="#pricing">اطلب خدمتك الآن</a>
+  </section>
+
+  <section id="about">
+    <h2>من نحن</h2>
+    <p class="about-text">
+      فريق متخصص يجمع بين الخبرة والشغف لتقديم حلول رقمية متكاملة تشمل تصميم المواقع، التصاميم البصرية،
+      والمونتاج. نلتزم بتقديم جودة عالية، سرعة إنجاز، ودعم فني حقيقي بعد التسليم.
+    </p>
+
+    <div class="values">
+      <div class="value"><i class="fas fa-bolt"></i> الاحترافية في العمل</div>
+      <div class="value"><i class="fas fa-clock"></i> الدقة في المواعيد</div>
+      <div class="value"><i class="fas fa-lightbulb"></i> التصميم العصري</div>
+      <div class="fas fa-headset"></i> دعم مستمر</div>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2>خدماتنا</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3><i class="fas fa-laptop-code"></i> تصميم مواقع إلكترونية</h3>
+        <p>مواقع متجاوبة بلغات HTML، CSS، JavaScript، Python وWordPress.</p>
+      </div>
+
+      <div class="card">
+        <h3><i class="fas fa-shopping-cart"></i> تصميم متاجر إلكترونية</h3>
+        <p>متاجر احترافية مع طرق دفع وعربة شراء وتصميم حديث.</p>
+      </div>
+
+      <div class="card">
+        <h3><i class="fas fa-paint-brush"></i> تصميم جرافيك ومونتاج</h3>
+        <p>لوجوهات، بانرات، بوستات سوشيال، وفيديوهات دعائية بجودة عالية.</p>
+      </div>
+
+      <div class="card">
+        <h3><i class="fas fa-mobile-alt"></i> إدارة سوشيال ميديا</h3>
+        <p>تصميم بروفايل احترافي وبايو وهايلايت ستوري وقوالب نشر ثابتة.</p>
+      </div>
+
+      <div class="card">
+        <h3><i class="fas fa-search"></i> تحسين محتوى SEO بسيط</h3>
+        <p>كتابة وصف الخدمات وتحسين الكلمات المفتاحية لنتائج بحث أفضل.</p>
+      </div>
+
+      <div class="card">
+        <h3><i class="fas fa-tools"></i> صيانة وتعديل مواقع</h3>
+        <p>تحديث بيانات، إصلاح أخطاء، تعديل شكل وتطوير صفحات حالية.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <h2>الباقات والأسعار</h2>
+
+    <div class="pricing">
+      <div class="price-box">
+        <h3>الباقة الأساسية</h3>
+        <div class="price">850<span>جنيه</span></div>
+        <ul>
+          <li>4 صفحات متجاوبة</li>
+          <li>HTML + CSS + JS</li>
+          <li>استضافة مجانية</li>
+          <li>تسليم 3-5 أيام</li>
+        </ul>
+        <a class="btn" href="#contact">ابدأ الآن</a>
+      </div>
+
+      <div class="price-box">
+        <h3>الباقة المتقدمة</h3>
+        <div class="price">1250<span>جنيه</span></div>
+        <ul>
+          <li>كل ما في الأساسية</li>
+          <li>صفحة إضافية</li>
+          <li>فورم تواصل + بانر</li>
+          <li>تحسين سرعة وحماية</li>
+        </ul>
+        <a class="btn" href="#contact">ابدأ الآن</a>
+      </div>
+
+      <div class="price-box">
+        <h3>الباقة الاحترافية</h3>
+        <div class="price">1800<span>جنيه</span></div>
+        <ul>
+          <li>كل ما سبق</li>
+          <li>تصميم Figma كامل</li>
+          <li>استضافة + دومين</li>
+          <li>SEO بسيط ودعم 7 أيام</li>
+        </ul>
+        <a class="btn" href="#contact">ابدأ الآن</a>
+      </div>
+    </div>
+
+    <p style="text-align:center;margin-top:30px">
+      <strong>عرض خاص اليوم:</strong> الباقة الأساسية بـ <span style="color:#ffeb3b">750 جنيه</span> لأول 3 عملاء!
+    </p>
+  </section>
+
+  <section>
+    <h2>آراء العملاء</h2>
+    <div class="testimonials">
+      <div class="testi"><i class="fas fa-quote-left"></i> موقع ممتاز وسهل الاستخدام، خدمة رائعة وسريعة! – محمد حسن</div>
+      <div class="testi"><i class="fas fa-quote-left"></i> أنصح بالتعامل مع KMI Services بشدة، جودة واحترافية. – سارة فؤاد</div>
+      <div class="testi"><i class="fas fa-quote-left"></i> نفّذوا طلبي بسرعة وخدمة ما بعد البيع ممتازة. – أحمد علاء</div>
+    </div>
+  </section>
+
+  <section id="contact" style="text-align:center;background:#112444;padding:50px 20px">
+    <h2>تواصل معنا</h2>
+    <p>جاهزين لتحويل فكرتك إلى واقع؟ تواصل معنا الآن واحصل على استشارة مجانية!</p>
+    <div class="social-links">
+      <a href="mailto:kmi.services3@gmail.com"><i class="fas fa-envelope"></i> البريد الإلكتروني</a>
+      <a href="https://wa.me/201125093884"><i class="fab fa-whatsapp"></i> واتساب</a> <a href="https://instagram.com/k_m_i_designer_campany" target="_blank"><i class="fab fa-instagram"></i> إنستجرام</a>
+      <a href="photos.html"><i class="fas fa-images"></i> صور</a>
+      <a href="privacy.html"><i class="fas fa-file-contract"></i> سياسة الخصوصية</a>
+      <a href="contact.html"><i class="fas fa-phone-alt"></i>طلب اوردور</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 KMI Services – جميع الحقوق محفوظة
+  </footer>
+
+  <button onclick="topFunction()" id="scrollToTopBtn" title="الرجوع للأعلى">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script>
+    // ----------- Type Effect Script -----------
+    const textToType = " أهلاً بك فيDmz Services"; // تم تغيير اسم المتغير لتجنب التعارض
+    let j = 0; // تم تغيير اسم المتغير لتجنب التعارض مع i لو تم استخدامه في مكان آخر
+    const typingSpeed = 100; // تم تغيير اسم المتغير
+
+    function typeWriter() {
+      if (j < textToType.length) {
+        document.getElementById("typeEffect").innerHTML += textToType.charAt(j);
+        j++;
+        setTimeout(typeWriter, typingSpeed);
+      }
+    }
+    // شغل الـ type effect لما الصفحة تحمل
+    window.onload = typeWriter;
+
+    // ----------- Scroll to Top Script -----------
+    // جلب الزرار
+    let mybutton = document.getElementById("scrollToTopBtn");
+
+    // لما المستخدم ينزل 20 بكسل من أعلى الدوكومنت، اظهر الزرار
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    // لما المستخدم يدوس على الزرار، رجعه لأعلى الصفحة بسلاسة
+    function topFunction() {
+      // For Safari
+      document.body.scrollTop = 0;
+      // For Chrome, Firefox, IE and Opera
+      document.documentElement.scrollTop = 0;
+      // لضمان السلاسة الحديثة (يعمل على معظم المتصفحات الحديثة)
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  </script>
+
+</body>
+</html>
