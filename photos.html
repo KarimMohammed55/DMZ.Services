@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<!DOCTYPE html><html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,75 +12,56 @@
       --radius:10px;
     }
     *{box-sizing:border-box;margin:0;padding:0;font-family:'Cairo',sans-serif}
-    body{background:var(--bg);color:var(--text);padding:20px;line-height:1.8}
+    body{background:var(--bg);color:var(--text);padding:20px;line-height:1.8}h1{text-align:center;color:var(--primary);margin-bottom:25px}
 
-    h1{text-align:center;color:var(--primary);margin-bottom:25px}
+.filters{text-align:center;margin-bottom:25px}
+.filters button{
+  background:var(--primary);color:#fff;border:none;padding:8px 18px;margin:0 6px;
+  cursor:pointer;border-radius:var(--radius);font-weight:600
+}
+.filters button.active,.filters button:hover{background:#0097a7}
 
-    /* filter buttons */
-    .filters{text-align:center;margin-bottom:25px}
-    .filters button{
-      background:var(--primary);color:#fff;border:none;padding:8px 18px;margin:0 6px;cursor:pointer;border-radius:var(--radius);font-weight:600
-    }
-    .filters button.active,.filters button:hover{background:#0097a7}
+.gallery{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px
+}
+.gallery img{
+  width:100%;height:140px;object-fit:cover;border-radius:var(--radius);
+  box-shadow:0 4px 8px rgba(0,0,0,.35);cursor:pointer;transition:transform .3s
+}
+.gallery img:hover{transform:scale(1.05)}
 
-    /* gallery grid */
-    .gallery{
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:15px
-    }
-    .gallery img{
-      width:100%;height:120px;object-fit:cover;border-radius:var(--radius);
-      box-shadow:0 4px 8px rgba(0,0,0,.35);cursor:pointer;transition:transform .3s
-    }
-    .gallery img:hover{transform:scale(1.05)}
+.popup{display:none;position:fixed;inset:0;background:#000d;
+       align-items:center;justify-content:center;z-index:999}
+.popup img{max-width:90%;max-height:90%;border:3px solid var(--primary);border-radius:var(--radius)}
+.popup:target{display:flex}
 
-    /* popup */
-    .popup{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:#000d;align-items:center;justify-content:center;z-index:999}
-    .popup img{max-width:90%;max-height:90%;border:3px solid var(--primary);border-radius:var(--radius)}
-    .popup:target{display:flex}
   </style>
 </head>
-<body>
-
-<h1>📸 معرض أعمالنا</h1>
-
-<!-- أزرار الفلترة -->
-<div class="filters">
+<body><h1>📸 معرض أعمالنا</h1><div class="filters">
   <button class="active" data-filter="all">الكل</button>
   <button data-filter="web">مواقع</button>
   <button data-filter="logo">لوجو</button>
-  <button data-filter="banner">بانر</button>
-</div>
-
-<!-- شبكة الصور -->
-<div class="gallery">
-  <!-- عدّل src وأضف/احذف كما تشاء -->
-  <a href="#p1"><img data-cat="web"    src="https://via.placeholder.com/300x200?text=Web1"   alt="Web 1"></a>
-  <a href="#p2"><img data-cat="web"    src="https://via.placeholder.com/300x200?text=Web2"   alt="Web 2"></a>
-  <a href="#p3"><img data-cat="logo"   src="https://via.placeholder.com/300x200?text=Logo1"  alt="Logo 1"></a>
-  <a href="#p4"><img data-cat="banner" src="https://via.placeholder.com/300x200?text=Banner" alt="Banner"></a>
-  <a href="#p5"><img data-cat="logo"   src="https://via.placeholder.com/300x200?text=Logo2"  alt="Logo 2"></a>
-  <a href="#p6"><img data-cat="banner" src="https://via.placeholder.com/300x200?text=Ad+Mock"alt="Ad Mock"></a>
-</div>
-
-<!-- نوافذ التكبير -->
-<div id="p1" class="popup"><a href="#"><img src="https://via.placeholder.com/800x600?text=Web1"></a></div>
-<div id="p2" class="popup"><a href="#"><img src="https://via.placeholder.com/800x600?text=Web2"></a></div>
-<div id="p3" class="popup"><a href="#"><img src="https://via.placeholder.com/800x600?text=Logo1"></a></div>
-<div id="p4" class="popup"><a href="#"><img src="https://via.placeholder.com/800x600?text=Banner"></a></div>
-<div id="p5" class="popup"><a href="#"><img src="https://via.placeholder.com/800x600?text=Logo2"></a></div>
-<div id="p6" class="popup"><a href="#"><img src="https://via.placeholder.com/800x600?text=Ad+Mock"></a></div>
-
-<!-- JavaScript للفلترة -->
-<script>
+  <button data-filter="banner">بانر / إعلان</button>
+</div><div class="gallery">
+  <a href="#img1"><img data-cat="web" src="https://i.ibb.co/xK2jwtvd/IMG-20250620-WA0008.jpg" alt=""></a>
+  <a href="#img2"><img data-cat="logo" src="https://i.ibb.co/gLQS8nBC/Orange-Purple-and-Pink-Modern-Tech-Logo-20250620-025600-0000.png" alt=""></a>
+  <a href="#img3"><img data-cat="web" src="https://i.ibb.co/v4xwF9G0/IMG-20250620-WA0007.jpg" alt=""></a>
+  <a href="#img4"><img data-cat="logo" src="https://i.ibb.co/xWCxxrp/Purple-and-Blue-Modern-Simple-Game-Development-Logo-20250620-025356-0000.png" alt=""></a>
+  <a href="#img5"><img data-cat="logo" src="https://i.ibb.co/xSW0KD4B/Brown-and-Black-Simple-Modern-Company-Developer-Logo-20250620-025437-0000.png" alt=""></a>
+  <a href="#img6"><img data-cat="logo" src="https://i.ibb.co/hFVv4jf9/Black-And-Red-Modern-Game-Developer-Logo-20250620-025522-0000.png" alt=""></a>
+</div><div id="img1" class="popup"><a href="#"><img src="https://i.ibb.co/xK2jwtvd/IMG-20250620-WA0008.jpg"></a></div>
+<div id="img2" class="popup"><a href="#"><img src="https://i.ibb.co/gLQS8nBC/Orange-Purple-and-Pink-Modern-Tech-Logo-20250620-025600-0000.png"></a></div>
+<div id="img3" class="popup"><a href="#"><img src="https://i.ibb.co/v4xwF9G0/IMG-20250620-WA0007.jpg"></a></div>
+<div id="img4" class="popup"><a href="#"><img src="https://i.ibb.co/xWCxxrp/Purple-and-Blue-Modern-Simple-Game-Development-Logo-20250620-025356-0000.png"></a></div>
+<div id="img5" class="popup"><a href="#"><img src="https://i.ibb.co/xSW0KD4B/Brown-and-Black-Simple-Modern-Company-Developer-Logo-20250620-025437-0000.png"></a></div>
+<div id="img6" class="popup"><a href="#"><img src="https://i.ibb.co/hFVv4jf9/Black-And-Red-Modern-Game-Developer-Logo-20250620-025522-0000.png"></a></div><script>
   const buttons = document.querySelectorAll('.filters button');
   const images  = document.querySelectorAll('.gallery img');
 
   buttons.forEach(btn=>{
     btn.onclick = ()=>{
-      // أظهر الزر النشط
       buttons.forEach(b=>b.classList.remove('active'));
       btn.classList.add('active');
-
       const filter = btn.dataset.filter;
       images.forEach(img=>{
         img.parentElement.style.display =
@@ -89,7 +69,5 @@
       });
     };
   });
-</script>
-
-</body>
+</script></body>
 </html>
